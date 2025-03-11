@@ -17,7 +17,7 @@ cv.imshow('Blurred Image', blur)
 
 ## DRAW EDGES ##
 
-# (source image, threshold1, threshold2)
+# (source image, threshold1, threshold2)    ! thre1 => if pixel value < th1 => put to black, if pixel > th2 => put to white
 canny = cv.Canny(img, 125, 175)                 # If I give blur, less edges are found
 cv.imshow('Edges', canny)
 
