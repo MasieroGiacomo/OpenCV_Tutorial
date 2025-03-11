@@ -13,6 +13,12 @@ gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow('Gray', gray)
 
 # 1.GRAB THE EDGES USING CANNY
+
+# In order to reduce noise, it's possible to blur the image before Canny
+'''
+blurred = cv.GaussianBlur(gray, (5,5), 0)
+canny = cv.Canny(blurred, 125, 175)
+'''
 canny = cv.Canny(img, 125, 175)
 cv.imshow('Canny Edges', canny)
 # contours: list off all coordinates of contours, hierarchies: hierarchical representation of contours
@@ -23,13 +29,12 @@ contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_SIM
 print(f'{len(contours)} contour(s) found!')
 
 
-# 2. USING ThRESHOOLD METHOD
+# 2. USING THRESHOOLD METHOD
 # Pixel value < 125 => black    pixel value > 255 => white.  THRESH_BINARY because I'm binarizing the image
 ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY)
 cv.imshow('Threshold', thresh)
 
 contours, hierarchies = cv.findContours(thresh, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
-# Can print the lenght of this list to see how many contours
 print(f'{len(contours)} contour(s) found!')
 
 
