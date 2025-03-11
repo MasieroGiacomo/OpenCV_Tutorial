@@ -4,7 +4,6 @@ import cv2 as cv
 # Can also do the conversion back (ex: gray->bgr)
 # ! CAN'T do direct conversion between spaces (ex: gray->HSV), ALWAYS need to pass through BGR !
 
-
 img = cv.imread('Images/cat.jpeg')
 cv.imshow('Cat', img)
 
