@@ -1,0 +1,4 @@
+Face Detection: detect a face in an image
+Classifier: algorithm that decides whether a given image is positive or negative. It must be trained 
+    with 100k images (or use openCV pre-trained classifiers)
+    - Haar Cascade: 
